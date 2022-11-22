@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :likes
 
   def Post.update_posts_counter(user)
-    number = Post.where(user: user).count
-    user.update(PostsCounter: number)
+    postCount = Post.where(user: user).count
+    user.update(PostsCounter: postCount)
   end
 
   def Post.most_rescent_comments(post)
