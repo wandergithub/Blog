@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def self.most_rescent_posts(au)
-    Post.where(user:).order(:created_at).limit(3)
+  def self.most_rescent_posts(author)
+    Post.where(author:).order(:created_at).limit(3)
   end
 end

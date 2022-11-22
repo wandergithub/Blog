@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def self.update_posts_counter(user)
-    user.update(:PostsCounter)
+  def self.update_posts_counter(author)
+    author.increment!(:PostsCounter)
   end
 
   def self.most_rescent_comments(post)
