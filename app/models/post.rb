@@ -3,12 +3,12 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def Post.update_posts_counter(user)
-    postCount = Post.where(user: user).count
-    user.update(PostsCounter: postCount)
+  def self.update_posts_counter(user)
+    post_count = Post.where(user:).count
+    user.update(PostsCounter: post_count)
   end
 
-  def Post.most_rescent_comments(post)
-    Comment.where(post: post).order(:created_at).limit(5)
+  def self.most_rescent_comments(post)
+    Comment.where(post:).order(:created_at).limit(5)
   end
 end
