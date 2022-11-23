@@ -15,5 +15,15 @@ RSpec.describe Post, type: :model do
       @post.title = "a"*251
       expect(@post).to_not be_valid
     end
+
+    it 'CommentsCounter should be an int greater or equl to zero' do
+      @post.CommentsCounter = nil
+      expect(@post).to_not be_valid
+    end
+
+    it 'LikesCounter  should be an int greater or equl to zero' do
+      @post.LikesCounter  = nil
+      expect(@post).to_not be_valid
+    end
   end
 end

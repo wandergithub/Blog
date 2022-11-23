@@ -5,6 +5,9 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :title, length: { maximum: 250 }
+  validates :CommentsCounter, comparison: { greater_than_or_equal_to: 0 }
+  validates :LikesCounter, comparison: { greater_than_or_equal_to: 0 }
+
   def self.update_posts_counter(user)
     user.increment!(:PostsCounter)
   end
