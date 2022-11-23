@@ -12,7 +12,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'Title should not exceed 250 characters' do
-      @post.title = "a"*251
+      @post.title = 'a' * 251
       expect(@post).to_not be_valid
     end
 
@@ -22,7 +22,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'LikesCounter  should be an int greater or equl to zero' do
-      @post.LikesCounter  = nil
+      @post.LikesCounter = nil
       expect(@post).to_not be_valid
     end
   end

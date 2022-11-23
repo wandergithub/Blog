@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do  
+RSpec.describe User, type: :model do
   describe 'validations' do
     before(:each) do
-      @user  = User.new(name: 'Jhon', photo: 'https://example.com/image', bio: 'any text')
+      @user = User.new(name: 'Jhon', photo: 'https://example.com/image', bio: 'any text')
     end
 
     it 'name should be present' do
