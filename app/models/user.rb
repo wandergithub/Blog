@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :PostsCounter, comparison: { greater_than_or_equal_to: 0 }
 
-  def self.most_rescent_posts(author)
-    Post.where(author:).order(:created_at).limit(3)
+  def self.most_rescent_posts(user)
+    Post.where(user:).order(:created_at).limit(3)
   end
 end
