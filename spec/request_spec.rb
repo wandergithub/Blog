@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET users#index' do
@@ -6,7 +6,7 @@ RSpec.describe 'Users', type: :request do
       get '/users'
     end
 
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -14,7 +14,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('index')
     end
 
-    it "Response body includes correct text" do
+    it 'Response body includes correct text' do
       expect(response.body).to include('Here is a list of users')
     end
   end
@@ -24,7 +24,7 @@ RSpec.describe 'Users', type: :request do
       get '/users/2'
     end
 
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('show')
     end
 
-    it "Response body includes correct text" do
+    it 'Response body includes correct text' do
       expect(response.body).to include('Here is a specific user')
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe 'Users', type: :request do
       get '/users/2/posts'
     end
 
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -50,7 +50,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('index')
     end
 
-    it "Response body includes correct text" do
+    it 'Response body includes correct text' do
       expect(response.body).to include('Here is a list of posts for a given user')
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe 'Users', type: :request do
       get '/users/2/posts/12'
     end
 
-    it "is a success" do
+    it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
@@ -68,7 +68,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('show')
     end
 
-    it "Response body includes correct text" do
+    it 'Response body includes correct text' do
       expect(response.body).to include('Here is a post')
     end
   end
