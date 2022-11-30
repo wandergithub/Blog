@@ -13,13 +13,21 @@ body {
 }
 .user-c img {
   border: 5px solid black;
+  padding: 5px;
 }
 .user-c div {
+  padding: 5px;
   border: 5px solid black;
   font-size: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 64%;
 }
 
 /* User#show */
+
+.bio, .post {
+  border: 5px solid black;
+  margin: 1%;
+  padding: 10px;
+}

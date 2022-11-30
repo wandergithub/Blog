@@ -1,12 +1,12 @@
 <div>
   <%= render 'partials/user', { user: @user } %>
-  <div>
+  <div class="bio">
     <h3>Bio</h3>
     <p><%= @user.bio %></p>
   </div>
   <div>
     <% @most_rescent_posts.each do |post| %>
-      <div>
+      <div class="post">
         <h2>Post #<%= post.id %></h2>
         <h3><%= post.title %></h3>
         <p><%= post.text %></p>
