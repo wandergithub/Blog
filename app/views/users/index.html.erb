@@ -1,1 +1,14 @@
-<h1>Here is a list of users</h1>
+<div>
+  <div>
+    <% @users.each do |user| %>
+      <img
+        src="https://www.w3schools.com/tags/img_girl.jpg"
+        alt="Girl in a jacket"
+        width="90"
+        height="90"
+      >
+      <%= user.name %>
+      Number of posts: <%= user.PostsCounter %>
+    <% end %>
+  </div>
+</div>
