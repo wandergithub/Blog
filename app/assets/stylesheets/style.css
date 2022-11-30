@@ -1,0 +1,25 @@
+/* General style */
+body {
+  margin: 30px;
+}
+
+/* _user */
+.user-c {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 32px;
+  margin: 1%;
+}
+.user-c img {
+  border: 5px solid black;
+}
+.user-c div {
+  border: 5px solid black;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-around;
+  width: 64%;
+}
+
+/* User#show */
