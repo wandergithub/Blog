@@ -1,8 +1,22 @@
 <div>
-  <img src="<%= @user.photo%>" alt="user profile picture" width="90" height="90">
+  <%= render 'partials/user', { user: @user } %>
   <div>
-    <%= @user.name %>
-    Number of posts:
-    <%= @user.PostsCounter %>
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
   </div>
+  <div>
+    <% @most_rescent_posts.each do |post| %>
+      <div>
+        <h2>Post #<%= post.id %></h2>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <div>
+          Comments:
+          <%= post.CommentsCounter %>, Likes:
+          <%= post.LikesCounter %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button>See all posts</button>
 </div>

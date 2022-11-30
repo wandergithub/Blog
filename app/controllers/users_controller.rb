@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
+   @most_rescent_posts = User.most_rescent_posts(@user)
   end
 end
