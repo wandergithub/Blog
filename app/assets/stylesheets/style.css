@@ -11,10 +11,12 @@ body {
   gap: 32px;
   margin: 1%;
 }
+
 .user-c img {
   border: 5px solid black;
   padding: 5px;
 }
+
 .user-c div {
   padding: 5px;
   border: 5px solid black;
