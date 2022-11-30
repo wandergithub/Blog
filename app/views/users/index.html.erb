@@ -1,14 +1,7 @@
 <div>
   <div>
     <% @users.each do |user| %>
-      <img
-        src="https://www.w3schools.com/tags/img_girl.jpg"
-        alt="Girl in a jacket"
-        width="90"
-        height="90"
-      >
-      <%= user.name %>
-      Number of posts: <%= user.PostsCounter %>
-    <% end %>
+      <%= render 'partials/user', {user: user} %>
+    <% end %>``
   </div>
 </div>
