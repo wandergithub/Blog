@@ -1,4 +1,4 @@
-<div>
+<div  class="post">
   <div>
     <%= @post.title %>
     by
@@ -13,8 +13,9 @@
   </p>
 </div>
 
-<div>
-<% @post.comments.each do |comment| %>
-  <%= comment.user.name %>: <%= comment.text %>
-<% end %>
+<div class="comment">
+  <% @post.comments.each do |comment| %>
+    <span><%= comment.user.name %>:
+      <%= comment.text %></span>
+  <% end %>
 </div>

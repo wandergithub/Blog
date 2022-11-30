@@ -3,7 +3,7 @@
 
   <% @user.posts.each do |post| %>
     <div>
-      <div>
+      <div class="post">
         <h2><%= post.title %></h2>
         <p><%= post.text %></p>
         <div>
@@ -12,10 +12,9 @@
           <%= post.LikesCounter %>
         </div>
       </div>
-      <div>
+      <div class="comment">
         <% post.comments.each do |comment| %>
-          <%= comment.user.name %>:
-          <%= comment.text %>
+          <span><%= comment.user.name %>: <%= comment.text %></span>
         <% end %>
       </div>
     </div>

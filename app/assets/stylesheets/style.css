@@ -26,8 +26,17 @@ body {
 
 /* User#show */
 
-.bio, .post {
+.bio,
+.post {
   border: 5px solid black;
   margin: 1%;
   padding: 10px;
+}
+
+.comment {
+  border: 5px solid black;
+  margin: 1%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
