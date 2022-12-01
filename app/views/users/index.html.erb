@@ -1,1 +1,7 @@
-<h1>Here is a list of users</h1>
+<div>
+  <div>
+    <% @users.each do |user| %>
+      <%= render 'partials/user', {user: user} %>
+    <% end %>
+  </div>
+</div>
