@@ -62,4 +62,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    Like.update_likes_counter(Post.find(params[:id]))
+
+    redirect_to request.referer
+  end
+
 end
