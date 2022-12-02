@@ -14,31 +14,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def new_comment
-    comment = Comment.new
-    respond_to do |format|
-      format.html { render :new_comment, locals: { comment: } }
-    end
-  end
-
-  def create_comment
-    comment = Comment.new(params.require(:comment).permit(:text))
-    comment.user = current_user
-    comment.post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html do
-        if comment.save
-          flash[:success] = 'Comment created successfully'
-          redirect_to '/users/1/posts/1/'
-        else
-          flash[:error] = 'Comment faild to create'
-          render :new_comment, locals: { comment: }
-        end
-      end
-    end
-  end
-
   def create
     post = Post.new(params.require(:post).permit(:title, :text))
     post.user = current_user
@@ -60,11 +35,5 @@ class PostsController < ApplicationController
         end
       end
     end
-  end
-
-  def like
-    Like.update_likes_counter(Post.find(params[:id]))
-
-    redirect_to request.referer
   end
 end
