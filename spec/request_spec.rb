@@ -57,7 +57,7 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET posts#show' do
     before(:each) do
-      get '/users/2/posts/12'
+      get '/users/1/posts/1'
     end
 
     it 'is a success' do

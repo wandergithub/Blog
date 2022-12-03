@@ -8,7 +8,9 @@ class Post < ApplicationRecord
   validates :CommentsCounter, comparison: { greater_than_or_equal_to: 0 }
   validates :LikesCounter, comparison: { greater_than_or_equal_to: 0 }
 
-  def self.update_posts_counter(user)
+  after_save :update_posts_counter
+
+  def update_posts_counter
     user.increment!(:PostsCounter)
   end
 

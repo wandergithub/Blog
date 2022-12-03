@@ -1,4 +1,4 @@
-<div  class="post">
+<div class="post">
   <div>
     <%= @post.title %>
     by
@@ -11,6 +11,10 @@
   <p>
     <%= @post.text %>
   </p>
+
+  <%= form_with url: "/users/#{@user_id}/posts/#{@id}/likes" do |form| %>
+    <%= form.submit "Like post" %>
+  <% end %>
 </div>
 
 <div class="comment">
