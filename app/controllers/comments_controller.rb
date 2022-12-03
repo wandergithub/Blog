@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   def new
     comment = Comment.new
     respond_to do |format|
-      format.html { render :new_comment, locals: { comment: } }
+      format.html { render :new, locals: { comment: } }
     end
   end
 
   def create
     comment = Comment.new(params.require(:comment).permit(:text))
     comment.user = current_user
-    comment.post = Post.find(params[:id])
+    comment.post = Post.find(params[:post_id])
 
     respond_to do |format|
       format.html do

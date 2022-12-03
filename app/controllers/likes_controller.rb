@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
-  def new
-    post = Post.find(params[:id]);
-    like  = Like.new(user: Post.find(params[:id]), post:)
+  def create
+    post = Post.find(params[:post_id]);
+    like  = Like.new(user: current_user, post:)
     respond_to do |format|
       format.html do
         if like.save

@@ -4,13 +4,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.where(user_id: params[:user_id]).find(params[:id])
+    @id = params[:id]
+    @user_id = params[:user_id]
+    @post = Post.where(user_id: @user_id).find(@id)
   end
 
   def new
     post = Post.new
     respond_to do |format|
-      format.html { render :new, locals: { post: } }
+      format.html { render :new, locals: { post:, user_id: params[:user_id] } }
     end
   end
 

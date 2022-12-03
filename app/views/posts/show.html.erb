@@ -12,7 +12,7 @@
     <%= @post.text %>
   </p>
 
-  <%= form_with url: like_post_path do |form| %>
+  <%= form_with url: "/users/#{@user_id}/posts/#{@id}/likes" do |form| %>
     <%= form.submit "Like post" %>
   <% end %>
 </div>
