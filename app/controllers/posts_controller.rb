@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @id = params[:id]
     @user_id = params[:user_id]
-    @post = Post.where(user_id: @user_id).find(@id)
+    @post = Post.includes(comments: [ :user ]).where(user_id: @user_id).find(@id)
   end
 
   def new
