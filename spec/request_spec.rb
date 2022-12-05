@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a list of users')
+      expect(response.body).to include('Blog')
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a specific user')
+      expect(response.body).to include('Blog')
     end
   end
 
@@ -51,7 +51,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+      expect(response.body).to include('Blog')
     end
   end
 
@@ -69,7 +69,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a post')
+      expect(response.body).to include('span')
     end
   end
 end
