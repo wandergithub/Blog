@@ -125,6 +125,21 @@ Post.create(
   CommentsCounter: 0,
   LikesCounter: 0,
 )
+Post.create(
+  user: alicia_user,
+  title: 'Nunc neque tellus, pulvinar volutpat tellus.',
+  text: big_lorem_ipsum,
+  CommentsCounter: 0,
+  LikesCounter: 0,
+)
+
+Post.create(
+  user: alicia_user,
+  title: 'Interdum et malesuada.',
+  text: big_lorem_ipsum,
+  CommentsCounter: 0,
+  LikesCounter: 0,
+)
 
 Comment.create(user: ella_user, post: scott_user.posts[2], text: 'Hi Scott!')
 Comment.create(user: alicia_user, post: scott_user.posts[2], text: 'Hi Scott!')
