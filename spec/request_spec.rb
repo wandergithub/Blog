@@ -57,14 +57,14 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET posts#show' do
     before(:each) do
-      get '/users/1/posts/1'
+      get "/users/2/posts/#{Post.first.id}"
     end
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
-    it "renders 'index' template" do
+    it "renders 'show' template" do
       expect(response).to render_template('show')
     end
 

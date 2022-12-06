@@ -13,7 +13,7 @@ RSpec.describe 'User#index page', type: :feature do
     it 'shows the profile picture for each user' do
       visit users_path
       users = User.all
-      expect(page).to have_css("img", :count => users.length)
+      expect(page).to have_css('img', count: users.length)
     end
   end
 end
