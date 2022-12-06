@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
 
 describe 'show first post complete', type: :feature do
   context 'visit /users/user_id/posts/post_id' do
@@ -30,6 +31,9 @@ describe 'show first post complete', type: :feature do
     it 'I can see the comment each commentor left.' do
       post.comments.each do |comment|
         expect(page).to have_content(comment.text)
+      end
+    it 'can see the user name of the post author' do
+      expect(page).to have_content(post.author.name)
       end
     end
   end
