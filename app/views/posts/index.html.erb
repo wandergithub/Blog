@@ -2,9 +2,9 @@
   <%= render 'partials/user', { user: @user } %>
 
   <% @user.posts.each do |post| %>
-    <div>
+    <div id="post_<%= post.id %>">
       <div class="post">
-        <h2><%= post.title %></h2>
+        <h2><%= link_to "#{post.title}", user_post_path(user_id: @user.id, id: post.id ) %></h2>
         <p><%= post.text %></p>
         <div>
           Comments:
