@@ -8,7 +8,7 @@ describe 'show all first user post', type: :feature do
     let(:post) do
       user.posts.first
     end
-    before(:example) { visit user_posts_path(user_id: user)}
+    before(:example) { visit user_posts_path(user_id: user) }
 
     it "I can see the user's profile picture." do
       expect(page.find('img')['src']).to have_content(user.photo)
@@ -20,10 +20,10 @@ describe 'show all first user post', type: :feature do
       expect(page).to have_content("Number of posts: #{user.PostsCounter}")
     end
     it "I can see a post's title." do
-      expect(page.find("#post_#{post.id}").find(".post")).to have_selector('h2', text: post.title)
+      expect(page.find("#post_#{post.id}").find('.post')).to have_selector('h2', text: post.title)
     end
     it "I can see some of the post's body." do
-      expect(page).to have_selector('p' , text: post.text.slice(0,20))
+      expect(page).to have_selector('p', text: post.text.slice(0, 20))
     end
     it 'I can see the first comments on a post.' do
       expect(page).to have_content(post.comments.first.text)
@@ -38,9 +38,9 @@ describe 'show all first user post', type: :feature do
       expect(page).to have_button 'Pagination'
     end
     it "When I click on a post, it redirects me to that post's show page." do
-      click_on "#{post.title}"
+      click_on post.title.to_s
 
-      expect(page).to have_current_path(user_post_path(user_id: user.id, id: post.id ))
+      expect(page).to have_current_path(user_post_path(user_id: user.id, id: post.id))
     end
   end
 end

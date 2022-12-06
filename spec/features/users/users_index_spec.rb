@@ -23,7 +23,7 @@ describe 'User index', type: :feature do
       user = User.first
 
       expect(page).to have_current_path(users_path)
-      click_on "#{user.name}"
+      click_on user.name.to_s
       expect(page).to have_current_path(user_path(id: user.id))
     end
   end

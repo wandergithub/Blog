@@ -9,6 +9,7 @@ AllCops:
     - "node_modules/**/*"
     - "spec/spec_helper.rb"
     - "spec/rails_helper.rb"
+    - "test/**/*"
   DisplayCopNames: true
 
 Layout/LineLength:
@@ -27,7 +28,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
-  Max: 30
+  Max: 40
 
 Style/Documentation:
   Enabled: false

@@ -3,10 +3,9 @@ require 'rails_helper'
 describe 'user show page', type: :feature do
   context 'visit /users/user_id' do
     let(:user) do
-      user = User.first
+      User.first
     end
     before(:example) { visit user_path(id: user.id) }
-
     it "I can see the user's profile picture." do
       expect(page.find('img')['src']).to have_content(user.photo)
     end
@@ -29,9 +28,7 @@ describe 'user show page', type: :feature do
     end
     it "When I click a user's post, it redirects me to that post's show page." do
       post = user.posts.first
-      
-      click_on "#{post.title}"
-
+      click_on post.title.to_s
       expect(page).to have_current_path(user_post_path(user_id: user.id, id: post.id))
     end
     it "When I click to see all posts, it redirects me to the user's post's index page." do
