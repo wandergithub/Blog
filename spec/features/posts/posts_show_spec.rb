@@ -32,8 +32,8 @@ describe 'show first post complete', type: :feature do
       post.comments.each do |comment|
         expect(page).to have_content(comment.text)
       end
-    it 'can see the user name of the post author' do
-      expect(page).to have_content(post.author.name)
+      it 'can see the user name of the post author' do
+        expect(page).to have_content(post.author.name)
       end
     end
   end
