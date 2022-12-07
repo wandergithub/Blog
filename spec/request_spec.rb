@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a list of users')
+      expect(response.body).to include('Blog')
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a specific user')
+      expect(response.body).to include('Blog')
     end
   end
 
@@ -51,25 +51,25 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a list of posts for a given user')
+      expect(response.body).to include('Blog')
     end
   end
 
   describe 'GET posts#show' do
     before(:each) do
-      get '/users/1/posts/1'
+      get "/users/2/posts/#{Post.first.id}"
     end
 
     it 'is a success' do
       expect(response).to have_http_status(:ok)
     end
 
-    it "renders 'index' template" do
+    it "renders 'show' template" do
       expect(response).to render_template('show')
     end
 
     it 'Response body includes correct text' do
-      expect(response.body).to include('Here is a post')
+      expect(response.body).to include('span')
     end
   end
 end

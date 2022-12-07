@@ -7,7 +7,7 @@
   >
   <div>
     <h1>
-    <%= user.name %>
+    <%= link_to "#{user.name}", user_path(id: user.id) %>
     </h1>
     <h3>
     Number of posts:
