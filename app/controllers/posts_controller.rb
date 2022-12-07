@@ -21,18 +21,13 @@ class PostsController < ApplicationController
     post.user = current_user
     post.CommentsCounter = 0
     post.LikesCounter = 0
-    # respond_to block
     respond_to do |format|
       format.html do
         if post.save
-          # success message
           flash[:success] = 'Post saved successfully'
-          # redirect to index
           redirect_to('/users/1/posts')
         else
-          # error message
           flash.now[:error] = 'Error: Post could not be saved'
-          # render new
           render :new, locals: { post: }
         end
       end
