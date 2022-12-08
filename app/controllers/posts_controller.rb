@@ -16,7 +16,8 @@ class PostsController < ApplicationController
     end
   end
 
-  def create
+  def creat
+
     post = Post.new(params.require(:post).permit(:title, :text))
     post.user = current_user
     post.CommentsCounter = 0
