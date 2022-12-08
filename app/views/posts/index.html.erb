@@ -5,6 +5,11 @@
     <div id="post_<%= post.id %>">
       <div class="post">
         <h2><%= link_to "#{post.title}", user_post_path(user_id: @user.id, id: post.id ) %></h2>
+        <% if (can? :destroy, post) %>
+          <%= form_with method: :delete, model: post, url: "/users/#{@user.id}/posts/#{post.id}", scope: :post do |form| %>
+            <%= form.submit "Delete post" %>
+          <% end %>
+        <% end %>
         <p><%= post.text %></p>
         <div>
           Comments:
@@ -14,7 +19,8 @@
       </div>
       <div class="comment">
         <% post.comments.each do |comment| %>
-          <span><%= comment.user.name %>: <%= comment.text %></span>
+          <span><%= comment.user.name %>:
+            <%= comment.text %></span>
         <% end %>
       </div>
     </div>
