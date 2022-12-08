@@ -36,12 +36,39 @@ body {
   padding: 10px;
 }
 
-.comment {
+.comment-list {
   border: 5px solid black;
   margin: 1%;
-  padding: 10px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
+  padding: 1%;
+}
+
+.comment {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.comment .comment-user {
+  text-align: left;
+  margin: 0;
+}
+
+.comment .comment-text {
+  text-align: left;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.comment .comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.comment .delete-comment-form > * {
+  padding: 0 10px;
 }
 
 .button {

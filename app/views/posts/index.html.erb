@@ -17,7 +17,7 @@
           <%= post.LikesCounter %>
         </div>
       </div>
-      <div class="comment">
+      <div class="comment-list">
         <% post.comments.each do |comment| %>
           <%= render "comments/show", comment: comment, post: post %>
         <% end %>
