@@ -6,7 +6,7 @@ class Ability
 
     return unless user.present? # additional permissions for logged in users (they can read their own posts)
 
-    can %i[update destroy create], [Post, Comment], user: user
+    can %i[update destroy create], [Post, Comment], user:
 
     return unless user.admin? # additional permissions for administrators
 
