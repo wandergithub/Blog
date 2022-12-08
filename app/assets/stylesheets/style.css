@@ -45,6 +45,12 @@ body {
   padding: 1%;
 }
 
+.new-comment {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .comment {
   text-align: left;
   padding: 0 10px;
