@@ -18,8 +18,19 @@
 </div>
 
 <div class="comment">
+  <%= render "comments/new", post: @post %>
   <% @post.comments.each do |comment| %>
-    <span><%= comment.user.name %>:
-      <%= comment.text %></span>
+    <span><%= comment.user.name %>
+    :
+    <%= comment.text %></span>
+
+    <% if (can? :update, comment) %>
+      can update
+    <% end %>
+
+    <% if (can? :delete, comment) %>
+      can delete
+    <% end %>
+
   <% end %>
 </div>
