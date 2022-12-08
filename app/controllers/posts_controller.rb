@@ -16,8 +16,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def creat
-
+  def create
     post = Post.new(params.require(:post).permit(:title, :text))
     post.user = current_user
     post.CommentsCounter = 0
@@ -26,26 +25,33 @@ class PostsController < ApplicationController
       format.html do
         if post.save
           flash[:success] = 'Post saved successfully'
-          redirect_to('/users/1/posts')
+          redirect_to user_posts_path(user_id: params[:user_id])
         else
           flash.now[:error] = 'Error: Post could not be saved'
           render :new, locals: { post: }
         end
       end
-      def destroy
-        post = Post.find(params[:id])
-        authorize! :destroy, post
-        respond_to do |format|
-          format.html do
-            if post.destroy
-              flash[:success] = 'Post Deleted successfully'
-            else
-              flash.now[:error] = 'Error: Post could not be deleted'
-            end
-            redirect_to request.referer
-          end
-        end
-      end
     end
   end
+
+  def destroy
+    post = Post.find(params[:id])
+    authorize! :destroy, post
+    
+    respond_to do |format|
+      format.html do
+        if post.destroy
+          flash[:success] = 'Post Deleted successfully'
+          redirect_to request.referer
+        else
+          flash.now[:error] = 'Error: Post could not be deleted'
+          redirect_to request.referer
+        end
+
+      end
+
+    end
+
+  end
+
 end

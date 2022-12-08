@@ -9,9 +9,14 @@ class Post < ApplicationRecord
   validates :LikesCounter, comparison: { greater_than_or_equal_to: 0 }
 
   after_save :update_posts_counter
+  after_destroy :update_posts_counter_d
 
   def update_posts_counter
     user.increment!(:PostsCounter)
+  end
+
+  def update_posts_counter_d
+    user.decrement!(:PostsCounter)
   end
 
   def self.most_rescent_comments(post)
