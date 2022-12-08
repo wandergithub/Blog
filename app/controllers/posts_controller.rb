@@ -37,21 +37,16 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     authorize! :destroy, post
-    
+
     respond_to do |format|
       format.html do
         if post.destroy
           flash[:success] = 'Post Deleted successfully'
-          redirect_to request.referer
         else
           flash.now[:error] = 'Error: Post could not be deleted'
-          redirect_to request.referer
         end
-
+        redirect_to request.referer
       end
-
     end
-
   end
-
 end
