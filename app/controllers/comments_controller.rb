@@ -6,6 +6,17 @@ class CommentsController < ApplicationController
     end
   end
 
+	def destroy
+		comment = Comment.includes(post: [:user]).find(params[:id])
+		post = comment.post
+		if can? :destroy, comment
+			comment.destroy
+		end
+		flash[:error] = 'cannot delete comment'
+		redirect_to "/users/#{post.user.id}/posts/#{post.id}/"
+	end
+
+
   def create
     comment = Comment.new(params.require(:comment).permit(:text))
 		post = Post.find(params[:post_id])

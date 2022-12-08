@@ -19,8 +19,7 @@
       </div>
       <div class="comment">
         <% post.comments.each do |comment| %>
-          <span><%= comment.user.name %>:
-            <%= comment.text %></span>
+          <%= render "comments/show", comment: comment, post: post %>
         <% end %>
       </div>
     </div>
