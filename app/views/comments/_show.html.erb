@@ -1,0 +1,16 @@
+<div class="comment" id=<%="comment-#{comment.id}"%>>
+  <h4 class="comment-user">
+    <%= link_to user_path comment.user do %>
+      <%= comment.user.name %>
+    <% end %>
+  </h4>
+  <p class="comment-text"><%= comment.text %></p>
+
+  <div class="comment-actions">
+    <% if (can? :destroy, comment) %>
+      <%= form_with model: Comment, url: user_post_comment_path(post.user, post, comment), method: :delete, class: "delete-comment-form" do |f| %>
+        <%= f.submit "delete", disable_with: 'deleting...', class: 'delete-btn' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -6,20 +6,28 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.includes(post: [:user]).find(params[:id])
+    post = comment.post
+    comment.destroy if can? :destroy, comment
+    flash[:error] = 'cannot delete comment'
+    redirect_to "/users/#{post.user.id}/posts/#{post.id}/"
+  end
+
   def create
     comment = Comment.new(params.require(:comment).permit(:text))
+    post = Post.find(params[:post_id])
     comment.user = current_user
-    comment.post = Post.find(params[:post_id])
+    comment.post = post
 
     respond_to do |format|
       format.html do
         if comment.save
           flash[:success] = 'Comment created successfully'
-          redirect_to '/users/1/posts/1/'
         else
           flash[:error] = 'Comment faild to create'
-          render :new, locals: { comment: }
         end
+        redirect_to "/users/#{post.user.id}/posts/#{post.id}/"
       end
     end
   end

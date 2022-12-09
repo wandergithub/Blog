@@ -1,0 +1,4 @@
+<%= form_with model: Comment, url: user_post_comments_path(post.user, post), class: 'new-comment' do |f| %>
+	<%= f.text_area :text, placeholder: 'Write a new comment' %>
+	<%= f.submit "Comment", disable_with: 'Commenting...', class: 'submit-comment-btn' %>
+<% end %>
